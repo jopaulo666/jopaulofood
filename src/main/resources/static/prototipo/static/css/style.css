@@ -140,6 +140,7 @@ div#divCategoriaGeral{
 }
 img#imgCategoriaComida{
     height: 50%;
+    padding-top: 20px;
 }
 fieldset#fieldsetFiltro{
     border-width: 3px;

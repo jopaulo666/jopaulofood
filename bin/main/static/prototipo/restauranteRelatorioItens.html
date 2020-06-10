@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+        <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+            <div id="divUsuarioLogoado">
+                Olá, João Paulo
+                <br>
+                <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho">
+            </div>
+        </header>
+        <br><br>
+        <!--cabeçalho fim-->
+
+        <div>
+            <h1>Relatório de itens</h1>
+            <fieldset id="fieldsetFiltros">
+                <legend>Filtros</legend>
+
+                <label for="cod">Código: </label><br>
+                <input type="text" name="cod" id="cod"><br>
+
+                <label for="inicio">Início: </label><br>
+                <input type="date" name="inicio" id="inicio"><br>
+
+                <label for="fim">Fim: </label><br>
+                <input type="date" name="fim" id="fim"><br>
+
+                <input type="button" value="Voltar">
+            </fieldset>
+        </div>
+        <br><br>
+        
+        <table>
+            <tr>
+                <th>Item</th>
+                <th>Quantidade</th>
+                <th>Faturamento</th>
+            </tr>
+            <tr>
+                <td>Pizza</td>
+                <td>30</td>
+                <td>R$ 1.125,30</td>
+            </tr>
+             <tr>
+                <td>Lanches</td>
+                <td>25</td>
+                <td>R$ 562,30</td>
+            </tr>
+             <tr>
+                <td>Churrasco</td>
+                <td>38</td>
+                <td>R$ 2.125,30</td>
+            </tr>
+        </table>
+
+        <input type="button" value="Voltar">
+
+    </body>    
+</html>

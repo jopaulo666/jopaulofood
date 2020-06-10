@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Busca</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+        <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+            <div id="divUsuarioLogoado">
+                Olá, João Paulo
+                <br>
+                <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho">
+            </div>
+        </header>
+        <br><br>
+        <!--cabeçalho fim--> 
+
+        <div>
+            <h1>Vamos comer!!!</h1>
+            <form>
+                <fieldset id="fieldsetFiltro">
+                    <input type="text" name="busca" placeholder="Buscar por...">
+                    <input type="button" value="Procurar" placeholder="Procurar">
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="divCategoriaGeral">
+            <div id="divCategoriaOpcao">
+                <a href="#">
+                    <img src="static/imagens/sys_categoriaChurrasco.png" id="imgCategoriaComida"><br>
+                    <span>Churrasco</span>
+                </a>
+            </div>
+            <div id="divCategoriaOpcao">
+                <a href="#">
+                    <img src="static/imagens/sys_categoriaHamburguer.png" id="imgCategoriaComida"><br>
+                    <span>Hamburguer</span>
+                </a>
+            </div>
+            <div id="divCategoriaOpcao">
+                <a href="#">
+                    <img src="static/imagens/sys_categoriaPizza.png" id="imgCategoriaComida"><br>
+                    <span>Pizza</span>
+                </a>
+            </div>
+            <div id="divCategoriaOpcao">
+                <a href="#">
+                    <img src="static/imagens/sys_categoriaSalada.png" id="imgCategoriaComida"><br>
+                    <span>Salada</span>
+                </a>
+            </div>
+            <div id="divCategoriaOpcao">
+                <a href="#">
+                    <img src="static/imagens/sys_categoriaSobremesa.png"><br>
+                    <span>Sobremesa</span>
+                </a>
+            </div>
+        </div>
+
+        <div>
+            <h1>Resultados</h1>
+            <fieldset>
+                <legend>Filtros</legend>
+                <input type="button" value="Entrega grátis"><br>
+                <input type="button" value="Menor preço" id="inputSelecionado"> <input type="button" value="Maior preço"><br>
+                <input type="button" value="Menor taxa"> <input type="button" value="Maior taxa"><br>
+                <input type="button" value="Menor tempo"> <input type="button" value="Maior tempo"><br>
+            </fieldset>
+        </div>
+
+        <div>
+            <div id="divRestaurante">
+                <a href="#">
+                    <img src="static/imagens/sys_restauranteBubgerKirg.png" id="imgRestauranteOpcao"><br>                    
+                    <span id="restauranteTitulo">Nome do restaurante</span><br>
+                    <span>Categoria de comida</span><br>
+                    <span>Tempo médio de entrega: 30m</span><br>
+                    <span>Taxa de entrega: R$ 9,90</span><br>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div id="divRestaurante">
+                <a href="#">
+                    <img src="static/imagens/sys_restauranteMcNaldos.png" id="imgRestauranteOpcao"><br>                    
+                    <span id="restauranteTitulo">Nome do restaurante</span><br>
+                    <span>Categoria de comida</span><br>
+                    <span>Tempo médio de entrega: 30m</span><br>
+                    <span>Taxa de entrega: R$ 9,90</span><br>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div id="divRestaurante">
+                <a href="#">
+                    <img src="static/imagens/sys_restaurantePaperBird.png" id="imgRestauranteOpcao"><br>                    
+                    <span id="restauranteTitulo">Nome do restaurante</span><br>
+                    <span>Categoria de comida</span><br>
+                    <span>Tempo médio de entrega: 30m</span><br>
+                    <span>Taxa de entrega: R$ 9,90</span><br>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div id="divRestaurante">
+                <a href="#">
+                    <img src="static/imagens/sys_restaurantePizzaBrut.png" id="imgRestauranteOpcao"><br>                    
+                    <span id="restauranteTitulo">Nome do restaurante</span><br>
+                    <span>Categoria de comida</span><br>
+                    <span>Tempo médio de entrega: 30m</span><br>
+                    <span>Taxa de entrega: R$ 9,90</span><br>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div id="divRestaurante">
+                <a href="#">
+                    <img src="static/imagens/sys_restauranteSbubby.png" id="imgRestauranteOpcao"><br>                    
+                    <span id="restauranteTitulo">Nome do restaurante</span><br>
+                    <span>Categoria de comida</span><br>
+                    <span>Tempo médio de entrega: 30m</span><br>
+                    <span>Taxa de entrega: R$ 9,90</span><br>
+                </a>
+            </div>
+            <br>
+            <br>
+            <div id="divRestaurante">
+                <a href="#">
+                    <img src="static/imagens/sys_restauranteWikiJapa.png" id="imgRestauranteOpcao"><br>                    
+                    <span id="restauranteTitulo">Nome do restaurante</span><br>
+                    <span>Categoria de comida</span><br>
+                    <span>Tempo médio de entrega: 30m</span><br>
+                    <span>Taxa de entrega: R$ 9,90</span><br>
+                </a>
+            </div>
+            <br>
+            <br>
+        </div>
+        <input type="button" value="Voltar">
+    </body>    
+</html>

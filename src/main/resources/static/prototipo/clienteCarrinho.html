@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Carrinho</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+        <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+            <div id="divUsuarioLogoado">
+                Olá, João Paulo
+                <br>
+                <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho">
+            </div>
+        </header>
+        <br><br>
+        <!--cabeçalho fim-->       
+
+        <div>
+            <h1>Seu pedido</h1>
+            <img src="static/imagens/sys_restaurantePizzaBrut.png">
+        </div>
+        <br><br>
+
+        <div>
+            <span id="restauranteTitulo">Pizza de Calabresa</span><br>
+            <span>Qtd: 1</span><br>
+            <span>Exemplo</span><br>
+            <span>39,90</span><br><br>
+            <input type="button" value="Remover Pedido">
+        </div>
+        <br><br>
+
+        <div>
+            <span id="restauranteTitulo">Refrigente Coca-Cola 2l</span><br>
+            <span>Qtd: 3</span><br>
+            <span>Exemplo</span><br>
+            <span>10,00</span><br><br>
+            <input type="button" value="Remover Pedido">
+        </div>
+        <br><br>
+
+        <div>
+            <span id="restauranteTitulo">Taxa de entrega</span><br>
+            <span>R$ 7,20</span><br>
+        </div>
+        <br><br>
+
+        <div>
+            <span id="restauranteTitulo">Total</span><br>
+            <span>R$ 50,00</span><br>
+        </div>
+        <br><br>
+        
+         <div>
+             <span id="restauranteTitulo">Observações</span><br>
+             <textarea></textarea>
+        </div>
+        <br><br>
+
+        <div>
+            <span id="restauranteTitulo">Cartão de crédito</span><br>
+            <input type="text" onkeypress="return isNumberKey(event)">
+        </div>
+        <br><br>
+
+        <div>
+            <input type="button" value="Enviar Pedido" onclick="location.href='clientePedido.html';"><br>
+            <input type="button" value="Voltar" onclick="location.href='index.html';">
+        </div>
+        <br><br>
+
+        <script>
+            function isNumberKey(evt) {
+                var charCode = (evt.which) ? evt.wich : event.keyCode;
+
+                if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+                    return false;
+                }
+                return true;
+            }
+        </script>
+    </body>    
+</html>

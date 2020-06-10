@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+        <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+            <div id="divUsuarioLogoado">
+                Olá, João Paulo
+                <br>
+                <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho">
+            </div>
+        </header>
+        <br><br>
+        <br><br>
+        <!--cabeçalho fim-->
+
+        <div>
+            <h1>Relatório de pedidos</h1>
+            <fieldset id="fieldsetPedidos">
+                <legend>Filtros</legend>
+
+                <label for="cod">Código: </label><br>
+                <input type="text" name="cod" id="cod"><br>
+
+                <label for="inicio">Início: </label><br>
+                <input type="date" name="inicio" id="inicio"><br>
+
+                <label for="fim">Fim: </label><br>
+                <input type="date" name="fim" id="fim"><br>
+
+                <input type="button" value="Voltar">
+            </fieldset>
+        </div>
+        <br><br>
+        
+        <table>
+            <tr>
+                <th>Pedido</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Valor</th>
+            </tr>
+            <tr>
+                <td><input type="button" value="#2014"></td>
+                <td>João Paulo da Mata Mendes</td>
+                <td>Av Roberto Camelier</td>
+                <td>R$ 45,60</td>
+            </tr>
+             <tr>
+                <td><input type="button" value="#2014"></td>
+                <td>Nadir Farias dos Santos</td>
+                <td>Av Roberto Camelier</td>
+                <td>R$ 60,50</td>
+            </tr>
+             <tr>
+                <td><input type="button" value="#2014"></td>
+                <td>Juca Medalha</td>
+                <td>Beco do Relógio</td>
+                <td>R$ 50,60</td>
+            </tr>
+        </table>
+
+        <input type="button" value="Voltar">
+
+    </body>    
+</html>

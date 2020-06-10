@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JopauloFood</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+        <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+        </header>
+        <br><br>
+        <!--cabeçalho fim-->
+        <div>
+            <img src="static/imagens/bf_iconeUsuario.png" id="imgUsuario">
+            <h1>Login</h1>
+            <form method="post" action="">
+                <fieldset style="background-color: #7bc2e5"><br>
+                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="password" name="senha" placeholder="Senha">
+                    <input type="button" value="Entrar" onclick="location.href='clienteHome.html';">
+                </fieldset>
+            </form>
+            <br>
+            <div id="msgErro">
+                Mensagem de erro
+            </div>
+            <br>
+            <input type="button" value="Novo Cliente" onclick="location.href='clienteCadastro.html';">
+            <br>
+            <input type="button" value="novo Restaurante" onclick="location.href='restauranteCadastro.html';">
+            <br>
+        </div>
+    </body>
+</html>

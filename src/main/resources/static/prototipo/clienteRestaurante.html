@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+        <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+            <div id="divUsuarioLogoado">
+                Olá, João Paulo
+                <br>
+                <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho">
+            </div>
+        </header>
+        <br><br>
+        <!--cabeçalho fim-->
+
+        <div>
+            <img src="static/imagens/sys_restauranteBubgerKirg.png"><br>                    
+            <span>Nome do restaurante</span><br>
+            <span>Categoria de comida</span><br>
+            <span>Tempo médio de entrega: 30m</span><br>
+            <span>Taxa de entrega: R$ 9,90</span><br>
+        </div>
+        
+        <div>
+            <h1>Opções</h1>
+            <fieldset>
+                <legend>Filtros</legend>
+                <input type="button" value="Promoções">
+                <input type="button" value="Saladas">
+                <input type="button" value="Bebidas">
+                <input type="button" value="Pizza">
+                <input type="button" value="Japonesa">
+                <input type="button" value="Lanches">
+            </fieldset>
+        </div>
+        
+        <div>
+            <h1>Destaques</h1>
+        </div>
+        
+        <div>
+            <div>
+                <img src="static/imagens/sys_comidaPizzaCalabresa.png"><br>
+                <span>Pizza de Calabrasa</span><br>
+                <span>Massa fina, queijo, presunto, calabresa e azeitona.</span><br>
+                <span>RS 30,00</span><br>
+                <form method="post" action="">
+                    <label for="quantidade">Quantidade: </label><br>
+                    <select form="quantidade" id="quantidade">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select><br><br>
+                    <p>Observações:</p>
+                    <textarea>
+                        
+                    </textarea><br><br>
+                    <input type="button" value="Adicionar ao carrinho">
+                </form>
+            </div>
+            <br>
+            <div>
+                <img src="static/imagens/sys_comidaHamburguer.png"><br>
+                <span>Hamburguer artesanal</span><br>
+                <span>Carne dupla com molho caseiro.</span><br>
+                <span>RS 30,00</span><br>
+                <form method="post" action="">
+                    <label for="quantidade">Quantidade: </label><br>
+                    <select form="quantidade" id="quantidade">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                    </select><br><br>
+                    <p>Observações:</p>
+                    <textarea>
+                        
+                    </textarea><br><br>
+                    <input type="button" value="Adicionar ao carrinho">
+                </form>
+            </div>
+        </div>
+        <br>
+        <input type="button" value="Voltar">
+    </body>
+</html>

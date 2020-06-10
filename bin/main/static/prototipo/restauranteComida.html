@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+    </head>
+    <body>
+        <!--caabeçalho-->
+       <header>
+            <div id="divLogoSis">
+                <span id="spanAlinahmentoVertical"></span>
+                <a href="">
+                    <img src="static/imagens/bf_logotipoSistema.png" id="imgLogo">
+                </a>
+            </div>
+            <div id="divUsuarioLogoado">
+                Olá, João Paulo
+                <br>
+                <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho">
+            </div>
+        </header>
+        <br><br>
+        <!--cabeçalho fim-->    
+        
+        <div>
+            <span>Pizza de calabresa</span><br>
+            <span>Pizzas</span><br>
+            <span>Massa fina, calabresa, azeitonas</span><br>
+            <span>R$ 30,00</span><br>
+            <input type="button" value="Remover"><br><br>
+            
+            <span>Pizza portuguesa</span><br>
+            <span>Pizzas</span><br>
+            <span>Massa fina, ovo. milho, tomate</span><br>
+            <span>R$ 35,00</span><br>
+            <input type="button" value="Remover"><br><br>
+        </div>
+        
+        <div>
+            Mensagem de erro
+        </div><br>
+        
+        <span>Nova comida:</span><br>
+        <div>
+        <form method="post" action="">
+            <label for="item">Item:</label><br>
+            <input type="text" name="item" id="item"><br>
+            
+            <label for="desc">Descrição:</label><br>
+            <input type="text" name="desc" id="desc"><br>
+            
+            <label for="preco">Preço:</label><br>
+            <input type="text" name="preco" id="preco"><br>
+            
+            <label for="categoria">Categoria de comida:</label><br>
+            <input type="text" name="categoria" id="categoria"><br>
+            
+            <label for="destaque">Destaque:</label><br>
+            <input type="checkbox" name="destaque" id="destaque"><br><br>
+            
+            <input type="button" value="Adicionar">
+        </form>
+            </div>
+        
+        <input type="button" value="Voltar">
+    </body>    
+</html>

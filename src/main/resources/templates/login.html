@@ -20,7 +20,11 @@
 				
 				<div id="msgErro">Mensagem de erro</div><br> 
 				
-				<input type="button" value="Novo Cliente" onclick="location.href='clienteCadastro.html';"> <br> 
+				
+				<form method="get" th:action="@{/public/cliente/new}">					
+					<input type="submit" value="Novo Cliente"> <br>
+				</form>
+				
 				<input type="button" value="novo Restaurante" onclick="location.href='restauranteCadastro.html';">
 			</div>
 		</div>

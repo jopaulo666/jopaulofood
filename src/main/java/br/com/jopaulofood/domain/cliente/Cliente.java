@@ -20,7 +20,7 @@ public class Cliente extends Usuario {
 //	@CPF
 	@NotBlank(message = "CPF obrigatório")
 	@Pattern(regexp = "[0-9] {11}", message = "CPF inválido")
-	@Column(length = 11)
+	@Column(length = 11, nullable = false)
 	private String cpf;
 	
 	@NotBlank(message = "CEP obrigatório")

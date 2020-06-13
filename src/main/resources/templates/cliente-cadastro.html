@@ -9,7 +9,9 @@
 	        <div>
 	            <h1>Cadastro de Cliente</h1>
 	            
-	            <div id="msgSucesso">Exemplo de mensagem de sucesso</div><br>
+	            <div id="msgSucesso" th:if="${msg != null}">
+	            	<span th:text="${msg}"></span>
+	            </div><br>
 	            
 	            <form method="post" th:object="${cliente}" th:action="${!editMode} ? @{/public/cliente/save} : @{/cliente/save}">
 	                <fieldset>

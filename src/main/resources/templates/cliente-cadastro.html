@@ -11,8 +11,10 @@
 	            
 	            <div id="msgSucesso">Exemplo de mensagem de sucesso</div><br>
 	            
-	            <form method="post" th:object="${cliente}" >
+	            <form method="post" th:object="${cliente}" th:action="@{/public/cliente/save}">
 	                <fieldset>
+	                	<div id="msgErro">Exemplo de mensagem de erro</div><br>
+	                
 	                    <label for="nome">Nome: </label><br>
 	                    <input type="text" id="nome" name="nome" placeholder="Nome completo" th:field="*{nome}"><br><br>
 	
@@ -31,10 +33,7 @@
 	                    <label for="senha">Senha: </label><br>
 	                    <input type="password" id="senha" name="senha" placeholder="Senha" th:field="*{senha}"><br><br>
 	
-	                    <input type="button" value="Cadastrar"><br><br>
-	
-	                    <div id="msgErro">Exemplo de mensagem de erro</div>
-	                    <br><br>
+	                    <input type="submit" value="Cadastrar"><br><br>
 	                </fieldset>
 	            </form>
 	            <br>

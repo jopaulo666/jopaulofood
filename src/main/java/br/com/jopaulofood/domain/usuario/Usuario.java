@@ -38,8 +38,8 @@ public class Usuario implements Serializable {
 	private String email;
 	
 	@NotBlank(message = "Telefone obrigatório")
-	@Pattern(regexp = "[0-9]{10}", message = "Telefone inválido")
-	@Column(length = 11, nullable = false)
+	@Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$", message = "Telefone inválido")
+	@Column(length = 15, nullable = false)
 	private String telefone;
 	
 	@NotBlank(message = "Senha obrigatória")

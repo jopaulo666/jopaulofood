@@ -19,12 +19,12 @@ public class Cliente extends Usuario {
 	
 //	@CPF
 	@NotBlank(message = "CPF obrigatório")
-	@Pattern(regexp = "[0-9]{11}", message = "CPF inválido")
-	@Column(length = 11, nullable = false)
+	@Pattern(regexp = "[0-9]{3}\\.?[0-9]{3}\\.?[0-9]{3}\\-?[0-9]{2}", message = "CPF inválido")
+	@Column(length = 14, nullable = false)
 	private String cpf;
 	
 	@NotBlank(message = "CEP obrigatório")
-	@Pattern(regexp = "[0-9]{8}", message = "CEP inválido")
-	@Column(length = 8, nullable = false)
+	@Pattern(regexp = "[0-9]{5}\\-?[0-9]{3}", message = "CEP inválido")
+	@Column(length = 9, nullable = false)
 	private String cep;
 }

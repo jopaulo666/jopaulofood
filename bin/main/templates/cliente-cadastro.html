@@ -42,7 +42,9 @@
 	                    	name="cpf"
 	                    	placeholder="999.999.999-99"
 	                    	th:field="*{cpf}"
-	                    	th:classappend="${#fields.hasErrors('cpf')} ? 'inputError' : ''"><br><br>
+	                    	th:classappend="${#fields.hasErrors('cpf')} ? 'inputError' : ''"
+	                    	onkeydown="return isNumberKey(event)"
+	                    	onkeypress="$(this).mask('000.000.000-00');"><br><br>
 						
 						<div id="msgErro" 
 	                		th:if="${#fields.hasErrors('email')}">
@@ -64,9 +66,11 @@
 	                    <input type="text"
 	                    	id="telefone"
 	                    	name="telefone"
-	                    	placeholder="Somente números"
+	                    	placeholder="(99) 99999-9999			"
 	                    	th:field="*{telefone}"
-	                    	th:classappend="${#fields.hasErrors('telefone')} ? 'inputError' : ''"><br><br>
+	                    	th:classappend="${#fields.hasErrors('telefone')} ? 'inputError' : ''"
+	                    	onkeydown="return isNumberKey(event)"
+	                    	onkeypress="$(this).mask('(00) 00000-0000');"><br><br>
 						
 						<div id="msgErro" 
 	                		th:if="${#fields.hasErrors('cep')}">
@@ -76,9 +80,11 @@
 	                    <input type="text"
 	                    	id="cep"
 	                    	name="cep"
-	                    	placeholder="somente números"
+	                    	placeholder="99999-999"
 	                    	th:field="*{cep}"
-	                    	th:classappend="${#fields.hasErrors('cep')} ? 'inputError' : ''"><br><br>
+	                    	th:classappend="${#fields.hasErrors('cep')} ? 'inputError' : ''"
+	                    	onkeydown="return isNumberKey(event)"
+	                    	onkeypress="$(this).mask('00000-000');"><br><br>
 						
 						<div id="msgErro" 
 	                		th:if="${#fields.hasErrors('senha')}">

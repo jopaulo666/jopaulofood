@@ -17,6 +17,14 @@ public class ClienteService {
 		if (!validateEmail(cliente.getEmail(), cliente.getId())) {
 			throw new ValidationException("E-mail já cadastrado");
 		}
+		
+		if (cliente.getId() != null) {
+			Cliente clientedb = clienteRepository.findById(cliente.getId()).orElseThrow();
+			cliente.setSenha(clientedb.getSenha());
+		} else {
+			cliente.encryptPassord();
+		}
+		
 		clienteRepository.save(cliente);
 	}
 	

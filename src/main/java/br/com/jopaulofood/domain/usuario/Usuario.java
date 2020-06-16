@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import br.com.jopaulofood.util.StringUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -45,4 +46,8 @@ public class Usuario implements Serializable {
 	@NotBlank(message = "Senha obrigatória")
 	@Size(max = 80, message = "A senha não pode ter mais de 80 caracteres")
 	private String senha;
+	
+	public void encryptPassord() {
+		this.senha = StringUtils.encrypt(this.senha);
+	}
 }

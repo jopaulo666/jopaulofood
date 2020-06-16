@@ -29,6 +29,13 @@ public class PublicController {
 		return "cliente-cadastro";
 	}
 	
+	@GetMapping("/restaurante/new")
+	public String newRestaurante(Model model) {
+		model.addAttribute("restaurante", new Cliente());
+		ControllerHelper.setEditMode(model, false);
+		return "restaurante-cadastro";
+	}
+	
 	@PostMapping(path = "/cliente/save")
 	public String saveCliente(@ModelAttribute("cliente") @Valid Cliente cliente, Errors errors, Model model) {
 		

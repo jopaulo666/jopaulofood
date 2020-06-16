@@ -25,7 +25,9 @@
 					<input type="submit" value="Novo Cliente"> 
 				</form>
 				
-				<input type="button" value="novo Restaurante" onclick="location.href='restauranteCadastro.html';">
+				<form method="get" th:action="@{/public/restaurante/new}">					
+					<input type="submit" value="Novo Restaurante"> 
+				</form>
 			</div>
 		</div>
 	</body>

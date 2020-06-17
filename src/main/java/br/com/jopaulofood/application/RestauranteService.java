@@ -14,13 +14,21 @@ public class RestauranteService {
 	@Autowired
 	private RestauranteRepository restauranteRepository;
 
-	public void saveRestaurante(Restaurante restaurante) throws ValidationException {
-		
+	public void saveRestaurante(Restaurante restaurante) throws ValidationException {		
 		if (!validateEmail(restaurante.getEmail(), restaurante.getId())) {
 			throw new ValidationException("E-mail já cadastrado");
 		}
 		
-		restauranteRepository.save(restaurante);
+		if (restaurante.getId() != null) {
+			Restaurante restaurantedb = restauranteRepository.findById(restaurante.getId()).orElseThrow();
+			restaurante.setSenha(restaurantedb.getSenha());
+		} else {
+			restaurante.encryptPassord();
+			restaurante = restauranteRepository.save(restaurante);
+			restaurante.setLogotipoFileName();
+			//TODO upload
+		}
+		
 	}
 	
 	private boolean validateEmail(String email, Integer id) {

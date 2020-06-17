@@ -12,8 +12,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
-	public void saveCliente(Cliente cliente) throws ValidationException {
-		
+	public void saveCliente(Cliente cliente) throws ValidationException {		
 		if (!validateEmail(cliente.getEmail(), cliente.getId())) {
 			throw new ValidationException("E-mail já cadastrado");
 		}

@@ -18,6 +18,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import br.com.jopaulofood.domain.usuario.Usuario;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -40,6 +42,8 @@ public class Restaurante extends Usuario {
 	@Size(max = 80)
 	private String logotipo;
 	
+	private transient MultipartFile logotipoFile;
+	
 	@NotNull(message = "Taxa de entrega obrigatória")
 	@Min(0)
 	@Max(99)
@@ -59,5 +63,13 @@ public class Restaurante extends Usuario {
 	@Size(min = 1, message = "Escolha ao menos uma categoria de comida")
 	@ToString.Exclude
 	private Set<CategoriaRestaurante> categorias = new HashSet<>(0);
+	
+	public void setLogotipoFileName() {
+		if (getId() == null) {
+			throw new IllegalStateException("É preciso gravar o produto");
+		}
+		//this.logotipo = String.format("%04d-log.%s", getId(), getId(), FileType.of(logotipoFile.getContentType()).getExtension());
+		this.logotipo = String.format("%04d-log.%s", getId(), ".png");
+	}
 	
 }

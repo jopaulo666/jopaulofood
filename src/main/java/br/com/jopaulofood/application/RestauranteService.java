@@ -3,8 +3,6 @@ package br.com.jopaulofood.application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.jopaulofood.domain.cliente.Cliente;
-import br.com.jopaulofood.domain.cliente.ClienteRepository;
 import br.com.jopaulofood.domain.restaurante.Restaurante;
 import br.com.jopaulofood.domain.restaurante.RestauranteRepository;
 
@@ -13,6 +11,9 @@ public class RestauranteService {
 	
 	@Autowired
 	private RestauranteRepository restauranteRepository;
+	
+	@Autowired
+	private ImageService imageService;
 
 	public void saveRestaurante(Restaurante restaurante) throws ValidationException {		
 		if (!validateEmail(restaurante.getEmail(), restaurante.getId())) {
@@ -26,7 +27,7 @@ public class RestauranteService {
 			restaurante.encryptPassord();
 			restaurante = restauranteRepository.save(restaurante);
 			restaurante.setLogotipoFileName();
-			//TODO upload
+			imageService.uploadLogotipo(restaurante.getLogotipoFile(), restaurante.getLogotipo());
 		}
 		
 	}

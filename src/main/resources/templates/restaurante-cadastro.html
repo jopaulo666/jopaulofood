@@ -91,8 +91,8 @@
 	                    	th:field="*{tempoEntregaBase}" 
 	                    	th:classappend="${#fields.hasErrors('tempoEntregaBase')} ? 'inputError' : '' "><br><br>
                     	
-                    	<div id="msgErro" th:if="${#fields.hasErrors('logotipo')}">
-	                    	<span th:errors="*{logotipo}"></span>
+                    	<div id="msgErro" th:if="${#fields.hasErrors('logotipoFile')}">
+	                    	<span th:errors="*{logotipoFile}"></span>
                     	</div><br>
 						<label for="logotipo">Logotipo: </label><br />	
 						<input type="file" 
@@ -100,7 +100,7 @@
 							name="logotipo" 
 							placeholder="Selecionar..."
 							th:field="*{logotipoFile}"
-							th:classappend="${#fields.hasErrors('logotipo')} ? 'inputError' : '' "><br /><br />
+							th:classappend="${#fields.hasErrors('logotipoFile')} ? 'inputError' : '' "><br /><br />
 					
 						<div id="msgErro" th:if="${#fields.hasErrors('categorias')}">
 	                    	<span th:errors="*{categorias}"></span>

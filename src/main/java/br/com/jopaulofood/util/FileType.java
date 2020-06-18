@@ -29,7 +29,7 @@ public enum FileType {
 		this.extension = extension;
 	}
 	
-	private boolean sameOf(String mimeType) {
+	public boolean sameOf(String mimeType) {
 		return this.mimeType.equalsIgnoreCase(mimeType);
 	}
 	

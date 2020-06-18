@@ -73,6 +73,7 @@ public class PublicController {
 			}
 		}
 		ControllerHelper.setEditMode(model, false);
+		ControllerHelper.addCategoriaToRequest(categoriaRestauranteRepository, model);
 		return "restaurante-cadastro";
 	}
 }

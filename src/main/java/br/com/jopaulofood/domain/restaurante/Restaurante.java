@@ -37,7 +37,7 @@ import lombok.ToString;
 public class Restaurante extends Usuario {
 
 	@NotBlank(message = "CNPJ obrigatório")
-	@Pattern(regexp = "[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2}", message = "CPF inválido")
+	@Pattern(regexp = "[0-9]{2}\\.?[0-9]{3}\\.?[0-9]{3}\\/?[0-9]{4}\\-?[0-9]{2}", message = "CNPJ inválido")
 	@Column(length = 18, nullable = false)
 	private String cnpj;
 	

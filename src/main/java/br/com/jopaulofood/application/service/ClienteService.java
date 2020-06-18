@@ -1,4 +1,4 @@
-package br.com.jopaulofood.application;
+package br.com.jopaulofood.application.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

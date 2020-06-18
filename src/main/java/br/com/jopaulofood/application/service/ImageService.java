@@ -1,4 +1,4 @@
-package br.com.jopaulofood.application;
+package br.com.jopaulofood.application.service;
 
 import java.io.IOException;
 

@@ -10,16 +10,17 @@
 				
 				<h1>Login</h1>
 				
-				<form method="post" action="">
-					<fieldset style="background-color: #7bc2e5"><br>
-						<input type="text" name="email" placeholder="E-mail">
-						<input type="password" name="senha" placeholder="Senha">
-						<input type="button" value="Entrar"	onclick="location.href='clienteHome.html';">
+				<div id="msgErro" th:if="${msg != null}">
+					<span th:text="${msg}"></span>
+				</div><br>
+				
+				<form method="post" th:action="@{/login}">
+					<fieldset><br>
+						<input type="text" name="username" placeholder="E-mail">
+						<input type="password" name="password" placeholder="Senha">
+						<input type="button" value="Entrar">
 					</fieldset>
-				</form><br>
-				
-				<div id="msgErro">Mensagem de erro</div><br> 
-				
+				</form><br>				
 				
 				<form method="get" th:action="@{/public/cliente/new}">					
 					<input type="submit" value="Novo Cliente"> 

@@ -20,10 +20,15 @@
 		<header>
 			<div id="divLogoSis">
 				<span id="spanAlinahmentoVertical"></span>
-				<a th:href="@{/}">
+				<a th:href="${link} == null ? @{/} : ${link}">
 					<img th:src="@{/imagens/bf_logotipoSistema.png}" id="imgLogo">
 				</a>
 			</div>
+			
+			<div id="divUsuarioLogoado" th:if="${#authentication.principal != 'anonymousUser'}">
+				<span th:text="'Bem vindo, ' + ${#authentication.principal.usuario.nome} + '!'"></span>                
+<!--                 <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho"> -->
+            </div>
 		</header>
 		<br><br>
 		<!--cabeçalho fim-->

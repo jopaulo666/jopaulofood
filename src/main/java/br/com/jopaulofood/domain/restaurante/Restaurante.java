@@ -45,7 +45,7 @@ public class Restaurante extends Usuario {
 	@Size(max = 80)
 	private String logotipo;
 	
-	@UploadConstraint(acceptedTypes = {FileType.PNG, FileType.JPG}, message = "Arquivo de imagem inválido")
+	@UploadConstraint(acceptedTypes = {FileType.PNG, FileType.JPG}, message = "Arquivo de imagem inválido. Use somente arquivos com extensão JPEG ou PNG\"")
 	private transient MultipartFile logotipoFile;
 	
 	@NotNull(message = "Taxa de entrega obrigatória")

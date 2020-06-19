@@ -150,7 +150,7 @@ public class InsertDataForTesting {
 		
 		c = new Cliente();
 		c.setNome("Jose Círio Pereira de Albuquerque");
-		c.setEmail("jose_cirio@gmail.com.br");
+		c.setEmail("jose@gmail.com.br");
 		c.setSenha(StringUtils.encrypt("c"));
 		c.setCep("66033-075");
 		c.setCpf("245.033.802-06");

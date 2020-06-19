@@ -62,7 +62,7 @@ public class ItemCardapio  implements Serializable{
 	@JoinColumn(name = "restaurante_id")
 	private Restaurante restaurante;
 	
-	@UploadConstraint(acceptedTypes = {FileType.PNG, FileType.JPG}, message = "Arquivo de imagem inválido")
+	@UploadConstraint(acceptedTypes = {FileType.PNG, FileType.JPG}, message = "Arquivo de imagem inválido. Use somente arquivos com extensão JPEG ou PNG")
 	private transient MultipartFile imagemFile;
 	
 	public void setImagemFileName() {

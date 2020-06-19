@@ -1,6 +1,5 @@
 package br.com.jopaulofood.infrastructure.web.security;
 
-import java.awt.List;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;

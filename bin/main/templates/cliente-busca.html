@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}"
+	th:with="link=@{/cliente/home}">
+
+	<body>
+		<div layout:fragment="content">   
+<!-- 		cabeçalho -->
+	        <div>
+	            <h1>Vamos comer!!!</h1>
+	            <form>
+	                <fieldset id="fieldsetFiltro">
+	                    <input type="text" name="busca" placeholder="Buscar por...">
+	                    <input type="button" value="Procurar" placeholder="Procurar">
+	                </fieldset>
+	            </form>
+	        </div>
+	
+	        <div id="divCategoriaGeral">
+	            <div id="divCategoriaOpcao" th:each="categoria : ${categorias}">
+	                <a href="#">
+	                    <img th:src="@{/imagens/categoria/} + ${categoria.imagem}" id="imgCategoriaComida"><br>
+	                    <span th:text="${categoria.nome}"></span>
+	                </a>
+	            </div>
+	        </div>
+	
+	        <div>
+	            <h1>Resultados</h1>
+	            <fieldset>
+	                <legend>Filtros</legend>
+	                <input type="button" value="Entrega grátis"><br>
+	                <input type="button" value="Menor preço" id="inputSelecionado"> <input type="button" value="Maior preço"><br>
+	                <input type="button" value="Menor taxa"> <input type="button" value="Maior taxa"><br>
+	                <input type="button" value="Menor tempo"> <input type="button" value="Maior tempo"><br>
+	            </fieldset>
+	        </div><br>
+	
+	        <div>
+	            <div id="divRestaurante" th:each="restaurante : ${restaurantes}">
+	                <a href="#">
+	                    <img th:src="@{/imagens/logotipo/} + ${restaurante.logotipo}" id="imgRestauranteOpcao"><br>                    
+	                    <span id="restauranteTitulo" th:text="${restaurante.nome}"></span><br>
+	                    <span>Categoria de comida</span><br>
+	                    <span th:text="'Tempo médio de entrega: ' + ${restaurante.tempoEntregaBase} + ' min'"></span><br>
+	                    <span>Taxa de entrega: R$ 9,90</span><br>
+	                </a>
+	            </div>
+	        </div>
+       		 <input type="button" value="Voltar">
+        </div>
+    </body>    
+</html>

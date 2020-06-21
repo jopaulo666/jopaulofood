@@ -6,13 +6,14 @@
 
 	<body>
 		<div layout:fragment="content">   
-
+<!-- 		cabeçalho -->
 	        <div>
 	            <h1>Vamos comer!!!</h1>
-	            <form>
+	            
+	            <form method="get" th:object="${searchFilter}" th:action="@{/cliente/search}">
 	                <fieldset id="fieldsetFiltro"><br>
-	                    <input type="text" name="busca" placeholder="Buscar por...">
-	                    <input type="button" value="Procurar" placeholder="Procurar">
+	                    <input type="text" th:field="*{texto}" placeholder="Buscar por...">
+	                    <input type="submit" value="Procurar">
 	                </fieldset>
 	            </form>
 	        </div><br>

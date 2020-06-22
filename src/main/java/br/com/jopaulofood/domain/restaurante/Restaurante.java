@@ -2,6 +2,7 @@ package br.com.jopaulofood.domain.restaurante;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -24,6 +25,7 @@ import org.springframework.web.multipart.MultipartFile;
 import br.com.jopaulofood.domain.usuario.Usuario;
 import br.com.jopaulofood.infrastructure.web.validator.UploadConstraint;
 import br.com.jopaulofood.util.FileType;
+import br.com.jopaulofood.util.StringUtils;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -78,4 +80,11 @@ public class Restaurante extends Usuario {
 		this.logotipo = String.format("%04d-log.%s", getId(), getId(), FileType.of(logotipoFile.getContentType()).getExtension());
 	}
 	
+	public String getCategoriasAsText() {
+		Set<String> strings = new LinkedHashSet<>();
+		for (CategoriaRestaurante categoria : categorias) {
+			strings.add(categoria.getNome());
+		}
+		return StringUtils.concatenar(strings);
+	}
 }

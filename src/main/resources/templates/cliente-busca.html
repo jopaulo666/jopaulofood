@@ -7,24 +7,28 @@
 	<body>
 		<div layout:fragment="content">   
 <!-- 		cabeçalho -->
-	        <div>
-	            <h1>Vamos comer!!!</h1>
-	            <form>
-	                <fieldset id="fieldsetFiltro">
-	                    <input type="text" name="busca" placeholder="Buscar por...">
-	                    <input type="button" value="Procurar" placeholder="Procurar">
+	        <form id="form" method="get" th:object="${searchFilter}" th:action="@{/cliente/search}">
+               	<input id="searchType" type="hidden" th:field="*{searchType}">
+               	<input id="categoriaId" type="hidden" th:field="*{categoriaId}">
+		        
+		        <div>
+		            <h1>Vamos comer!!!</h1>
+		            
+	                <fieldset id="fieldsetFiltro"><br>
+	                    <input type="text" th:field="*{texto}" placeholder="Buscar por...">
+	                    <input type="button" value="Procurar" onclick="searchRest(null)">
 	                </fieldset>
-	            </form>
-	        </div>
-	
-	        <div id="divCategoriaGeral">
-	            <div id="divCategoriaOpcao" th:each="categoria : ${categorias}">
-	                <a href="#">
-	                    <img th:src="@{/imagens/categoria/} + ${categoria.imagem}" id="imgCategoriaComida"><br>
-	                    <span th:text="${categoria.nome}"></span>
-	                </a>
-	            </div>
-	        </div>
+		        </div><br>
+		
+		        <div id="divCategoriaGeral">
+		            <div id="divCategoriaOpcao" th:each="categoria : ${categorias}">
+		                <a href="#" th:onclick="'searchRest(' + ${categoria.id} + ');'">
+		                    <img th:src="@{/imagens/categoria/} + ${categoria.imagem}" id="imgCategoriaComida"><br>
+		                    <span th:text="${categoria.nome}"></span>
+		                </a>
+		            </div>
+		        </div>
+            </form>
 	
 	        <div>
 	            <h1>Resultados</h1>
@@ -47,8 +51,13 @@
 	                    <span th:text="'Taxa de entrega: ' +${#numbers.formatCurrency(restaurante.taxaEntrega)}"></span><br>
 	                </a>
 	            </div>
-	        </div>
-       		 <input type="button" value="Voltar">
+			</div>
+			
+			<div th:if="${restaurantes.size() == 0}">
+				<span>Nenhum restaurante encontrado</span>
+			</div><br>
+
+       		 <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/home} + '\';'"><br>
         </div>
     </body>    
 </html>

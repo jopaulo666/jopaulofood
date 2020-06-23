@@ -26,7 +26,7 @@
 			</div>
 			
 			<div id="divUsuarioLogoado" th:if="${#authentication.principal != 'anonymousUser'}">
-				<span th:text="'Bem vindo, ' + ${#authentication.principal.usuario.nome} + '!'"></span>                
+				<span th:text="'Olá, ' + ${#authentication.principal.usuario.nome} + '!'"></span>                
 <!--                 <img src="static/imagens/bf_iconeCarrinho.png" id="imgCarrinho"> -->
             </div>
 		</header>

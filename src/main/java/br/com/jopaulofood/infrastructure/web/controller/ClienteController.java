@@ -23,6 +23,7 @@ import br.com.jopaulofood.domain.cliente.ClienteRepository;
 import br.com.jopaulofood.domain.restaurante.CategoriaRestaurante;
 import br.com.jopaulofood.domain.restaurante.CategoriaRestauranteRepository;
 import br.com.jopaulofood.domain.restaurante.Restaurante;
+import br.com.jopaulofood.domain.restaurante.RestauranteRepository;
 import br.com.jopaulofood.domain.restaurante.SearchFilter;
 import br.com.jopaulofood.util.SecurityUtils;
 
@@ -35,6 +36,9 @@ public class ClienteController {
 	
 	@Autowired
 	private CategoriaRestauranteRepository categoriaRestauranteRepository;
+	
+	@Autowired
+	private RestauranteRepository restauranteRepository;
 	
 	@Autowired
 	private ClienteService clienteService;
@@ -84,6 +88,15 @@ public class ClienteController {
 		model.addAttribute("restaurantes", restaurantes);
 		ControllerHelper.addCategoriaToRequest(categoriaRestauranteRepository, model);
 		model.addAttribute("searchFilter", filter);
+		model.addAttribute("cep", SecurityUtils.loggedCliente().getCep());
 		return "cliente-busca";
+	}
+	
+	@GetMapping(path = "/restaurante")
+	public String viewRestaurante(@RequestParam("restauranteId") Integer restauranteId, Model model) {
+		Restaurante restaurante = restauranteRepository.findById(restauranteId).orElseThrow();
+		model.addAttribute("restaurante", restaurante);
+		model.addAttribute("cep", SecurityUtils.loggedCliente().getCep());
+		return "cliente-restaurante";
 	}
 }

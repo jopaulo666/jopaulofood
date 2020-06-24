@@ -26,3 +26,8 @@ function searchRest(categoriaId){
 
 	document.getElementById("form").submit();
 }
+
+function setCmd(cmd) {
+	document.getElementById("cmd").value = cmd;
+	document.getElementById("form").submit();
+}

@@ -19,12 +19,9 @@
                 <h1>Opções</h1>
                 <fieldset>
                     <legend>Filtros</legend>
-                    <input type="button" value="Promoções">
-                    <input type="button" value="Saladas">
-                    <input type="button" value="Bebidas">
-                    <input type="button" value="Pizza">
-                    <input type="button" value="Japonesa">
-                    <input type="button" value="Lanches">
+                    <div style="display: inline;" th:each="categoria : ${categorias}">
+                        <input type="button" th:value="${categoria}">
+                    </div>
                 </fieldset>
             </div>
             
@@ -32,13 +29,14 @@
                 <h1>Destaques</h1>
             </div>
             
-            <div>
-                <div>
-                    <img src="static/imagens/sys_comidaPizzaCalabresa.png"><br>
-                    <span>Pizza de Calabrasa</span><br>
-                    <span>Massa fina, queijo, presunto, calabresa e azeitona.</span><br>
-                    <span>RS 30,00</span><br>
-                    <form method="post" action="">
+            <div id="divCategoriasComidaGeral" th:each="item : ${itensCardapioDestaque}" style="margin-top: 20px;">
+                <div id="divRestaurantesOpcao">
+                    <img id="imgRestauranteOpcao" th:src="@{/imagens/comida/} + ${item.imagem}"><br>
+                    <span id="restauranteTitulo" th:text="${item.nome}"></span><br>
+                    <span th:text="${item.descricao}"></span><br>
+                    <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
+                    <form method="GET" th:action="@{/cliente/carrinho/adicionar}">
+                        <input type="hidden" name="itemId" th:value="${item.id}">
                         <label for="quantidade">Quantidade: </label><br>
                         <select form="quantidade" id="quantidade">
                             <option>1</option>
@@ -47,35 +45,43 @@
                             <option>4</option>
                         </select><br><br>
                         <p>Observações:</p>
-                        <textarea>
+                        <textarea name="observacoes">
                             
                         </textarea><br><br>
-                        <input type="button" value="Adicionar ao carrinho">
-                    </form>
-                </div>
-                <br>
-                <div>
-                    <img src="static/imagens/sys_comidaHamburguer.png"><br>
-                    <span>Hamburguer artesanal</span><br>
-                    <span>Carne dupla com molho caseiro.</span><br>
-                    <span>RS 30,00</span><br>
-                    <form method="post" action="">
-                        <label for="quantidade">Quantidade: </label><br>
-                        <select form="quantidade" id="quantidade">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                        </select><br><br>
-                        <p>Observações:</p>
-                        <textarea>
-                            
-                        </textarea><br><br>
-                        <input type="button" value="Adicionar ao carrinho">
+                        <input type="submit" value="Adicionar ao carrinho">
                     </form>
                 </div>
             </div><br>
-            <input type="button" value="Voltar">                                            
+
+            <div>
+                <h1>Menu</h1>
+            </div>
+             
+            <div id="divCategoriasComidaGeral" th:each="item : ${itensCardapioNaoDestaque}" style="margin-top: 20px;">
+                <div id="divRestaurantesOpcao">
+                    <img id="imgRestauranteOpcao" th:src="@{/imagens/comida/} + ${item.imagem}"><br>
+                    <span id="restauranteTitulo" th:text="${item.nome}"></span><br>
+                    <span th:text="${item.descricao}"></span><br>
+                    <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
+                    <form method="GET" th:action="@{/cliente/carrinho/adicionar}">
+                        <input type="hidden" name="itemId" th:value="${item.id}">
+                        <label for="quantidade">Quantidade: </label><br>
+                        <select form="quantidade" id="quantidade">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select><br><br>
+                        <p>Observações:</p>
+                        <textarea name="observacoes">
+                            
+                        </textarea><br><br>
+                        
+                        <input type="submit" value="Adicionar ao carrinho">
+                    </form>
+                </div>
+            </div><br>            
+            <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/home} + '\';'"><br>                                            
 		</div>
     </body>
 </html>

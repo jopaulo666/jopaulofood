@@ -141,6 +141,13 @@ div#divCategoriaGeral{
     margin-left: 20%;
     margin-right: 20%;
 }
+div#divCategoriasComidaOpcao
+{
+	background-color: #ffffff;
+	width: 20%;
+	height: 130px;
+	float: left;	
+}
 img#imgCategoriaComida{
     height: 50%;
     padding-top: 20px;
@@ -157,6 +164,7 @@ img#imgRestauranteOpcao{
 }
 span#restauranteTitulo{
     font-weight: bold;
+    font-size: 20px;
     text-transform: uppercase;
 }
 div#divRestaurante{

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}">	
+
+	<body>
+		<div layout:fragment="content">
+        <!--cabeçalho fim-->      
+            <div>
+                <h1>Seu pedido</h1>
+                <img th:if="${carrinho.restaurante != null}"
+                    th:src="@{/imagens/logotipo/} + ${carrinho.restaurante.logotipo}"
+                    id="imgRestauranteBusca">
+            </div>
+            <br><br>
+
+            <div th:each="item : ${carrinho.itens}">
+                <span id="restauranteTitulo" th:text="${item.itemCardapio.nome}"></span><br>
+                <span th:text="'Qtd: ' + ${item.quantidade}"></span><br>
+                <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
+                <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
+                <input type="button" value="Remover Pedido"><br><br><br>
+            </div>
+            <br>
+
+            <div>
+                <span id="restauranteTitulo">Taxa de entrega</span><br>
+                <span th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span><br>
+            </div>
+            <br><br>
+
+            <div>
+                <span id="restauranteTitulo">Total</span><br>
+                <span th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}"></span><br>
+            </div>
+            <br><br>
+
+            <div>
+                <span id="restauranteTitulo">Cartão de crédito</span><br>
+                <input type="text" onkeypress="return isNumberKey(event)">
+            </div>
+            <br><br>
+
+            <div>
+                <input type="button" value="Enviar Pedido" onclick="location.href='clientePedido.html';"><br>
+                <input type="button" value="Voltar" onclick="location.href='index.html';">
+            </div>
+		</div>
+    </body>    
+</html>

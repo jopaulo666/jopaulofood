@@ -1,13 +1,19 @@
 package br.com.jopaulofood.domain.pedido;
 
+import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import br.com.jopaulofood.domain.restaurante.ItemCardapio;
 import br.com.jopaulofood.domain.restaurante.Restaurante;
+import lombok.Getter;
+import lombok.Setter;
 
-public class Carrinho {
+@SuppressWarnings("serial")
+@Getter
+public class Carrinho implements Serializable{
 
 	private List<ItemPedido> itens = new ArrayList<>();
 	
@@ -59,5 +65,19 @@ public class Carrinho {
 			}
 		}
 		return false;
+	}
+	
+	public BigDecimal getPrecoTotal(boolean adicionarTaxaEntrega) {
+		BigDecimal soma = BigDecimal.ZERO;
+		
+		for (ItemPedido item : itens) {
+			soma = soma.add(item.getPreco());
+		}
+		
+		if (adicionarTaxaEntrega) {
+			soma = soma.add(restaurante.getTaxaEntrega());
+		}
+		
+		return soma;
 	}
 }

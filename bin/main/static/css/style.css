@@ -141,8 +141,7 @@ div#divCategoriaGeral{
     margin-left: 20%;
     margin-right: 20%;
 }
-div#divCategoriasComidaOpcao
-{
+div#divCategoriasComidaOpcao{
 	background-color: #ffffff;
 	width: 20%;
 	height: 130px;
@@ -159,7 +158,8 @@ input#inputSelecionado{
     background-color: #69c5ee;
     border-color: #1e9bde;
 }
-img#imgRestauranteOpcao{
+img#imgRestauranteOpcao,
+img#imgRestauranteBusca{
     height: 130px;
 }
 span#restauranteTitulo{

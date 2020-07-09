@@ -5,7 +5,12 @@
 
 	<body>
 		<div layout:fragment="content">
-        <!--cabeçalho fim-->      
+        <!--cabeçalho fim-->   
+        
+            <div id="msgErro" th:if="${msg != null}">
+                <span th:text="${msg}"></span>
+            </div><br>
+                
             <div>
                 <h1>Seu pedido</h1>
                 <img th:if="${carrinho.restaurante != null}"
@@ -19,30 +24,37 @@
                 <span th:text="'Qtd: ' + ${item.quantidade}"></span><br>
                 <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
                 <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
-                <input type="button" value="Remover Pedido"><br><br><br>
+                <input type="button" value="Remover Pedido"
+                    th:onclick="'location.href=\'' + @{/cliente/carrinho/remover} + '?itemId=' + ${item.itemCardapio.id} + '\';'"><br><br><br>
             </div>
-            <br>
 
-            <div>
-                <span id="restauranteTitulo">Taxa de entrega</span><br>
-                <span th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span><br>
+            <div th:if="${carrinho.vazio()}">
+                <span>Carrinho vazio :(</span>
             </div>
-            <br><br>
 
-            <div>
-                <span id="restauranteTitulo">Total</span><br>
-                <span th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}"></span><br>
-            </div>
-            <br><br>
+            <div th:if="!${carrinho.vazio()}">
+                <div>
+                    <span id="restauranteTitulo">Taxa de entrega</span><br>
+                    <span th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span><br>
+                </div>
+                <br><br>
 
-            <div>
-                <span id="restauranteTitulo">Cartão de crédito</span><br>
-                <input type="text" onkeypress="return isNumberKey(event)">
-            </div>
-            <br><br>
+                <div>
+                    <span id="restauranteTitulo">Total</span><br>
+                    <span th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}"></span><br>
+                </div>
+                <br><br>
 
-            <div>
-                <input type="button" value="Enviar Pedido" onclick="location.href='clientePedido.html';"><br>
+                <div>
+                    <span id="restauranteTitulo">Cartão de crédito</span><br>
+                    <input type="text" onkeypress="return isNumberKey(event)">
+                </div>
+                <br><br>
+
+                <div>
+                    <input type="button" value="Enviar Pedido" onclick="location.href='clientePedido.html';"><br>
+                </div>
+                
                 <input type="button" value="Voltar" onclick="location.href='index.html';">
             </div>
 		</div>

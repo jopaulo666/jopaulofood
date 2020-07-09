@@ -71,7 +71,7 @@ public class Carrinho implements Serializable{
 		BigDecimal soma = BigDecimal.ZERO;
 		
 		for (ItemPedido item : itens) {
-			soma = soma.add(item.getPreco());
+			soma = soma.add(item.getPrecoCalculado());
 		}
 		
 		if (adicionarTaxaEntrega) {
@@ -79,5 +79,14 @@ public class Carrinho implements Serializable{
 		}
 		
 		return soma;
+	}
+	
+	public void limpar() {
+		itens.clear();
+		restaurante = null;
+	}
+	
+	public boolean vazio() {
+		return itens.size() == 0;
 	}
 }

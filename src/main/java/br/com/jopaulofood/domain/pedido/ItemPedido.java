@@ -34,7 +34,7 @@ public class ItemPedido implements Serializable{
 	@NotNull
 	private Integer quantidade;
 	
-	@Size(max = 50)
+	@Size(max = 150)
 	private String observacoes;
 	
 	@NotNull

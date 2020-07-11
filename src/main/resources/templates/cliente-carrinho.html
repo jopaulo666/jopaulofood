@@ -46,17 +46,19 @@
                 </div>
                 <br><br>
 
-                <div>
-                    <span id="restauranteTitulo">Cartão de crédito</span><br>
-                    <input type="text" onkeypress="return isNumberKey(event)">
-                </div>
-                <br><br>
+                <form method="POST" th:action="@{/cliente/pagamento/pagar}">
+                    <div>
+                        <span id="restauranteTitulo">Cartão de crédito</span><br>
+                        <input name="numCartao" type="text" onkeypress="$(this).mask('0000 0000 0000 0000');">
+                    </div>
+                    <br><br>
 
-                <div>
-                    <input type="button" value="Enviar Pedido" onclick="location.href='clientePedido.html';"><br>
-                </div>
-                
-                <input type="button" value="Voltar" onclick="location.href='index.html';">
+                    <div>
+                        <input type="submit" value="Enviar Pedido"><br>
+                    </div>
+                    
+                    <input type="button" value="Voltar" onclick="location.href='index.html';">
+                </form>
             </div>
 		</div>
     </body>    

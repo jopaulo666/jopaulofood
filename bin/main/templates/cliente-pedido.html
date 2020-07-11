@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}"
+	th:with="link=@{/cliente/home}">
+
+	<body>
+		<div layout:fragment="content">   
+<!-- 		cabeçalho -->            
+            <div>
+                <h1>Seu pedido</h1>
+                <input type="button" value="Refazer Pedido">
+            </div>
+            <br>
+
+            <div id="msgErro">
+                <span th:text="'Status: ' + ${pedido.status.descricao}"></span>
+            </div><br>
+
+            <div>
+                <img th:src="@{/imagens/logotipo/} + ${pedido.restaurante.logotipo}" id="imgRestauranteBusca">
+            </div>
+            
+            <div th:each="item : ${pedido.itens}">
+                <span th:text="${item.itemCardapio.nome}"></span><br>
+                <span th:text="'Qtd: ' + ${item.quantidade}"></span><br>
+                <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
+                <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br><br>
+                <input type="button" value="Remover Pedido">
+            </div>
+            <br>
+            
+            <div>
+                <span>Taxa de entrega</span><br>
+                <span th:text="${#numbers.formatCurrency(pedido.taxaEntrega)}"></span><br>
+            </div>
+            <br>
+            
+            <div>
+                <span>Total</span><br>
+                <span th:text="${#numbers.formatCurrency(pedido.total)}"></span><br>
+            </div>
+            <br>
+            
+             <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/home} + '\';'"><br>      
+		</div>
+    </body>    
+</html>

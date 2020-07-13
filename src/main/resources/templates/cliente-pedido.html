@@ -9,7 +9,8 @@
 <!-- 		cabeçalho -->            
             <div>
                 <h1>Seu pedido</h1>
-                <input type="button" value="Refazer Pedido">
+                <input type="button" value="Refazer pedido" 
+                    th:onclick="'location.href=\'' + @{/cliente/carrinho/refazerCarrinho} + '?pedidoId=' + ${pedido.id} + '\';'"><br> 
             </div>
             <br>
 
@@ -25,10 +26,10 @@
                 <span th:text="${item.itemCardapio.nome}"></span><br>
                 <span th:text="'Qtd: ' + ${item.quantidade}"></span><br>
                 <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
-                <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br><br>
+                <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
                 <input type="button" value="Remover Pedido">
             </div>
-            <br>
+            
             
             <div>
                 <span>Taxa de entrega</span><br>

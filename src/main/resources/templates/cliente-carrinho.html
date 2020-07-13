@@ -26,7 +26,7 @@
                 <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
                 <span th:text="${#numbers.formatCurrency(item.preco)}"></span><br>
                 <input type="button" value="Remover Pedido"
-                    th:onclick="'location.href=\'' + @{/cliente/carrinho/remover} + '?itemId=' + ${item.itemCardapio.id} + '\';'"><br><br><br>
+                    th:onclick="'location.href=\'' + @{/cliente/carrinho/remover} + '?itemId=' + ${item.itemCardapio.id} + '\';'"><br><br>
             </div>
 
             <div th:if="${carrinho.vazio()}">
@@ -36,15 +36,14 @@
             <div th:if="!${carrinho.vazio()}">
                 <div>
                     <span id="restauranteTitulo">Taxa de entrega</span><br>
-                    <span th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span><br>
-                </div>
-                <br><br>
+                    <span th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span>
+                </div><br>
 
                 <div>
                     <span id="restauranteTitulo">Total</span><br>
-                    <span th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}"></span><br>
+                    <span th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}"></span>
                 </div>
-                <br><br>
+                <br>
 
                 <form method="POST" th:action="@{/cliente/pagamento/pagar}">
                     <div>
@@ -57,7 +56,7 @@
                         <input type="submit" value="Enviar Pedido"><br>
                     </div>
                     
-                    <input type="button" value="Voltar" onclick="location.href='index.html';">
+                    <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/home} + '\';'"><br> 
                 </form>
             </div>
 		</div>

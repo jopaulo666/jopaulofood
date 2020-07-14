@@ -20,6 +20,8 @@ import br.com.jopaulofood.application.service.RestauranteService;
 import br.com.jopaulofood.application.service.ValidationException;
 import br.com.jopaulofood.domain.cliente.Cliente;
 import br.com.jopaulofood.domain.cliente.ClienteRepository;
+import br.com.jopaulofood.domain.pedido.Pedido;
+import br.com.jopaulofood.domain.pedido.PedidoRepository;
 import br.com.jopaulofood.domain.restaurante.CategoriaRestaurante;
 import br.com.jopaulofood.domain.restaurante.CategoriaRestauranteRepository;
 import br.com.jopaulofood.domain.restaurante.ItemCardapio;
@@ -46,6 +48,9 @@ public class ClienteController {
 	private RestauranteRepository restauranteRepository;
 	
 	@Autowired
+	private PedidoRepository pedidoRepository; 
+	
+	@Autowired
 	private ClienteService clienteService;
 	
 	@Autowired
@@ -56,6 +61,10 @@ public class ClienteController {
 		List<CategoriaRestaurante> categorias = categoriaRestauranteRepository.findAll(Sort.by("nome"));
 		model.addAttribute("categorias", categorias);
 		model.addAttribute("searchFilter", new SearchFilter());
+		// últimos pedidos
+		List<Pedido> pedidos = pedidoRepository.listPedidosByCliente(SecurityUtils.loggedCliente().getId());
+		model.addAttribute("pedidos", pedidos);
+		
 		return "cliente-home";
 	}
 	

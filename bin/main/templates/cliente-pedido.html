@@ -42,8 +42,8 @@
                 <span th:text="${#numbers.formatCurrency(pedido.total)}"></span><br>
             </div>
             <br>
-            
-             <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/home} + '\';'"><br>      
+            <!-- verificar fluxo -->
+             <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/cliente/restaurante} + '?restauranteId=' + ${restaurante.id} '\';'"><br>      
 		</div>
     </body>    
 </html>

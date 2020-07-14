@@ -36,14 +36,16 @@
 <!-- 	            <input type="button" value="10% hambuerguer"><br> -->
 <!-- 	            <input type="button" value="15% pizza"><br> -->
 <!-- 	        </div> -->
-	        
 	        <div>
-	            <h1>Últimos pedidos</h1>
-	            <input type="button" value="12345 Gilson Lanches"><br>
-	            <input type="button" value="554754 Beto Lanches"><br>
-	            <input type="button" value="554754 Rico's Lanches"><br>
-	        </div><br><br>
-	        
+				<h1>Últimos pedidos</h1>
+				
+				<div th:each="pedido : ${pedidos}">
+					<input type="button" th:value="${pedido.formattedId} + ' ' + ${pedido.restaurante.nome}"
+						th:onclick="'location.href=\'' + @{/cliente/pedido/view} + '?pedidoId=' + ${pedido.id} + '\';'">
+				</div>
+				<span th:if="${pedidos.size() == 0}">Você ainda não fez nenhum pedido. Vamos começar?!</span>
+			</div><br><br>
+			
 	        <div>
 	            <h1>Conta</h1>
 	            <input type="button" value="Meus dados" th:onclick="'location.href=\'' + @{/cliente/edit} + '\';'"><br>

@@ -55,7 +55,16 @@ public class Pedido implements Serializable {
 		
 		public boolean isUltimo() {
 			return ultimo;
-		}	
+		}
+		
+//		public static Status fromOrdem(int ordem) {
+//			for (Status status : Status.values()) {
+//				if (status.getOrdem() == ordem) {
+//					return status;
+//				}
+//			}
+//			return null;
+//		}
 	}
 
 	@Id

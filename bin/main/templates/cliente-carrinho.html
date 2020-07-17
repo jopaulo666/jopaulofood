@@ -30,28 +30,28 @@
             </div>
 
             <div th:if="${carrinho.vazio()}">
-                <span>Carrinho vazio :(</span>
+                <span>Carrinho vazio :(</span><br>
             </div>
 
-            <div th:if="!${carrinho.vazio()}">
-                <div>
+            <div th:if="!${carrinho.vazio()}">   
+                <div>             
                     <span id="restauranteTitulo">Taxa de entrega</span><br>
-                    <span th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span>
-                </div><br>
-
+                    <span id="restauranteOpcaoTaxa" th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span>
+                </div>
+                
                 <div>
                     <span id="restauranteTitulo">Total</span><br>
                     <span th:text="${#numbers.formatCurrency(carrinho.getPrecoTotal(true))}"></span>
-                </div>
+                </div> 
                 <br>
 
                 <form method="POST" th:action="@{/cliente/pagamento/pagar}">
                     <div>
                         <span id="restauranteTitulo">Cartão de crédito</span><br>
-                        <input name="numCartao" type="text" onkeypress="$(this).mask('0000 0000 0000 0000');">
+                        <input name="numCartao" type="text" onkeypress="return isNumberKey(event)">
                     </div>
                     <br><br>
-
+                     <!--onkeypress="$(this).mask('0000 0000 0000 0000');"-->
                     <div>
                         <input type="submit" value="Enviar Pedido"><br>
                     </div>

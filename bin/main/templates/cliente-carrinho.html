@@ -37,7 +37,7 @@
                 <div>             
                     <span id="restauranteTitulo">Taxa de entrega</span><br>
                     <span id="restauranteOpcaoTaxa" th:text="${#numbers.formatCurrency(carrinho.restaurante.taxaEntrega)}"></span>
-                </div>
+                </div><br>
                 
                 <div>
                     <span id="restauranteTitulo">Total</span><br>
@@ -48,10 +48,10 @@
                 <form method="POST" th:action="@{/cliente/pagamento/pagar}">
                     <div>
                         <span id="restauranteTitulo">Cartão de crédito</span><br>
-                        <input name="numCartao" type="text" onkeypress="return isNumberKey(event)">
+                        <input name="numCartao" type="text" onkeypress="$(this).mask('0000 0000 0000 0000');">
                     </div>
                     <br><br>
-                     <!--onkeypress="$(this).mask('0000 0000 0000 0000');"-->
+                     <!---->
                     <div>
                         <input type="submit" value="Enviar Pedido"><br>
                     </div>

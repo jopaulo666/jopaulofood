@@ -13,11 +13,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import br.com.jopaulofood.domain.cliente.Cliente;
 import br.com.jopaulofood.domain.restaurante.Restaurante;
+import br.com.jopaulofood.pagamento.Pagamento;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -97,6 +99,9 @@ public class Pedido implements Serializable {
 	
 	@OneToMany(mappedBy = "id.pedido", fetch = FetchType.EAGER)
 	private Set<ItemPedido> itens;
+	
+	@OneToOne(mappedBy = "pedido")
+	private Pagamento pagamento;
 	
 	public String getFormattedId() {
 		return String.format("#%04d", id);

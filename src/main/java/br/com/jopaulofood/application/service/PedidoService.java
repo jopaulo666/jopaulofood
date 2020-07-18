@@ -21,6 +21,8 @@ import br.com.jopaulofood.domain.pedido.Pedido;
 import br.com.jopaulofood.domain.pedido.Pedido.Status;
 import br.com.jopaulofood.domain.pedido.PedidoRepository;
 import br.com.jopaulofood.pagamento.DadosCartao;
+import br.com.jopaulofood.pagamento.Pagamento;
+import br.com.jopaulofood.pagamento.PagamentoRepository;
 import br.com.jopaulofood.pagamento.StatusPagamento;
 import br.com.jopaulofood.util.SecurityUtils;
 
@@ -32,6 +34,9 @@ public class PedidoService {
 	
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
+	private PagamentoRepository pagamentoRepository;
 	
 	@Value("${jopaulofood.jppay.url}")
 	private String jpPayUrl;
@@ -83,6 +88,12 @@ public class PedidoService {
 		if (statusPagamento != StatusPagamento.Autorizado) {
 			throw new PagamentoException(statusPagamento.getDescricao());
 		}
+		
+		Pagamento pagamento = new Pagamento();
+		pagamento.setData(LocalDateTime.now());
+		pagamento.setPedido(pedido);
+		pagamento.definirNumeroIsBandeira(numCartao);
+		pagamentoRepository.save(pagamento);
 		
 		return pedido;
 	}

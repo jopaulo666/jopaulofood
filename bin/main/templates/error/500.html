@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+    layout:decorate="~{layout}"
+    th:with="link=@{/cliente/home}">	
+
+	<body>
+		<div layout:fragment="content">
+        <!--cabeçalho fim-->           
+		<div id="msgErro">Erro no servidor</div>
+
+		<br>
+		<br>
+		
+		<div id="imagemDeErro">
+			<img th:src="@{/imagens/pagina-nao-encontrada.png}">
+		</div>
+                
+			
+		</div>
+    </body>    
+</html>

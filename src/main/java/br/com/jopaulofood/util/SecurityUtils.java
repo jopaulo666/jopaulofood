@@ -41,7 +41,7 @@ public class SecurityUtils {
 			throw new IllegalStateException("Não existe usuário logado");
 		}
 		
-		if (!(loggedUser.getUsuario() instanceof Cliente)) {
+		if (!(loggedUser.getUsuario() instanceof Restaurante)) {
 			throw new IllegalStateException("Usuário logado não é um restaurante");
 		}
 		

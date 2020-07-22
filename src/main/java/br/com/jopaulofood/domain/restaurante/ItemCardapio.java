@@ -44,7 +44,7 @@ public class ItemCardapio  implements Serializable{
 	private String categoria;
 	
 	@NotBlank(message = "Descrição obrigatório")
-	@Size(max = 80)
+	@Size(max = 100)
 	private String descricao;
 	
 	@Size(max = 50)

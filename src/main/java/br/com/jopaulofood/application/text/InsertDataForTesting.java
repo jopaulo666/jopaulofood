@@ -1,6 +1,7 @@
 package br.com.jopaulofood.application.text;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -12,6 +13,9 @@ import org.springframework.stereotype.Component;
 
 import br.com.jopaulofood.domain.cliente.Cliente;
 import br.com.jopaulofood.domain.cliente.ClienteRepository;
+import br.com.jopaulofood.domain.pedido.Pedido;
+import br.com.jopaulofood.domain.pedido.Pedido.Status;
+import br.com.jopaulofood.domain.pedido.PedidoRepository;
 import br.com.jopaulofood.domain.restaurante.CategoriaRestaurante;
 import br.com.jopaulofood.domain.restaurante.CategoriaRestauranteRepository;
 import br.com.jopaulofood.domain.restaurante.ItemCardapio;
@@ -35,6 +39,9 @@ public class InsertDataForTesting {
 	@Autowired
 	private ItemCardapioRepository itemCardapioRepository;
 	
+	@Autowired
+	private PedidoRepository pedidoRepository;
+	
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		
@@ -42,15 +49,15 @@ public class InsertDataForTesting {
 		Restaurante[] restaurantes = restaurantes();
 		itensCardapio(restaurantes);
 		
-//		Pedido p = new Pedido();
-//		p.setData(LocalDateTime.now());
-//		p.setCliente(clientes[0]);
-//		p.setRestaurante(restaurantes[0]);
-//		p.setStatus(Status.Producao);
-//		p.setSubtotal(BigDecimal.valueOf(10));
-//		p.setTaxaEntrega(BigDecimal.valueOf(2));
-//		p.setTotal(BigDecimal.valueOf(12.0));
-//		pedidoRespository.save(p);
+		Pedido p = new Pedido();
+		p.setData(LocalDateTime.now());
+		p.setCliente(clientes[0]);
+		p.setRestaurante(restaurantes[0]);
+		p.setStatus(Status.Producao);
+		p.setSubtotal(BigDecimal.valueOf(10));
+		p.setTaxaEntrega(BigDecimal.valueOf(2));
+		p.setTotal(BigDecimal.valueOf(12.0));
+		pedidoRepository.save(p);
 	}
 	
 	private Restaurante[] restaurantes() {

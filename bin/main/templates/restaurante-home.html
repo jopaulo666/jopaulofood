@@ -9,18 +9,17 @@
 <!-- 		cabeçalho -->   
 
             <div>
-                <h1>Pedidos em andamento</h1>            
-                <input type="button" value="#1245"><br>
-                <input type="button" value="#1245"><br>
-                <input type="button" value="#2510"><br>
-                <input type="button" value="#5458"><br>
-                <input type="button" value="#2020"><br>
+                <h1>Pedidos em andamento</h1>
+                <div th:each="pedido : ${pedidos}">       
+                	<input type="button" th:value="${pedido.formattedId}"
+                		th:onclick="'location.href=\'' + @{/restaurante/pedido} + '?pedidoId=' + '\';'"><br>
+               	</div>
             </div>
 
             <div>
                 <h1>Configurações</h1>            
                 <input type="button" value="Dados do restaurante" th:onclick="'location.href=\'' + @{/restaurante/edit} + '\';'"><br>
-               <input type="button" value="Comidas" th:onclick="'location.href=\' '+ @{/restaurante/comidas} + '\''" /><br />
+                <input type="button" value="Comidas" th:onclick="'location.href=\' '+ @{/restaurante/comidas} + '\''" /><br />
                 <input type="button" value="Realatório de pedidos"><br>
                 <input type="button" value="Relatório de itens"><br>
                 <input type="button" value="Sair" th:onclick="'location.href=\'' + @{/logout} + '\';'"><br>

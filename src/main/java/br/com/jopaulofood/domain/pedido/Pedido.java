@@ -59,14 +59,14 @@ public class Pedido implements Serializable {
 			return ultimo;
 		}
 		
-//		public static Status fromOrdem(int ordem) {
-//			for (Status status : Status.values()) {
-//				if (status.getOrdem() == ordem) {
-//					return status;
-//				}
-//			}
-//			return null;
-//		}
+		public static Status fromOrdem(int ordem) {
+			for (Status status : Status.values()) {
+				if (status.getOrdem() == ordem) {
+					return status;
+				}
+			}
+			return null;
+		}
 	}
 
 	@Id
@@ -105,5 +105,13 @@ public class Pedido implements Serializable {
 	
 	public String getFormattedId() {
 		return String.format("#%04d", id);
+	}
+	
+	public void definirProximoStatus() {
+		int ordem = status.getOrdem();
+		Status newStatus = Status.fromOrdem(ordem +1);
+		if (newStatus != null) {
+			this.status = newStatus;
+		}
 	}
 }

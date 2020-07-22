@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	layout:decorate="~{layout}"
+	th:with="link=@{/restaurante/home}">
+
+	<body>
+		<div layout:fragment="content">   
+<!-- 		cabeçalho -->   
+
+	        <div>
+	            <h1>PEDIDO</h1>            
+	            
+	           	<div id="msgSucesso" th:if="${msg != null}">
+	                <span th:text="${msg}"></span> <br>
+	            </div> 
+	            <br>
+	            
+	            <form method="post" th:action="@{/restaurante/pedido/proximoStatus}">
+	            	<input type="hidden" name="pedidoId" th:value="${pedido.id}">
+	            	<input type="submit" th:value="'Status: ' + ${pedido.status.descricao}" th:disabled="${pedido.status.ultimo}">
+	            </form>
+	        </div>
+	
+	        <div>
+	            <span id="restauranteTitulo">Data</span><br>
+	            <span th:text="${#temporals.format(pedido.data, 'dd/MM/yyyy HH:mm')}"></span><br>
+	        </div>
+	        <br><br>
+	        
+	        <div>
+	            <span id="restauranteTitulo" th:text="${pedido.cliente.nome}"></span><br>
+	            <span id="restauranteTaxa" th:text="'CEP: ' + ${pedido.cliente.cep}"></span><br>
+	        </div>
+	        <br><br>
+	        
+	        <div th:each="item : ${pedidoitens}">
+	            <span id="restauranteTitulo" th:text="${item.cardapio.nome}"></span><br>
+	            <span th:text="'Qtd: ' + ${item.quantidade}"></span><br>
+	            <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
+	            <span th:text="${#numbers.formatCurrency(item.cardapio.preco)}"></span><br>
+	        </div>
+	        <br><br>
+	        
+	        <div>
+	            <span id="restauranteTitulo">Taxa de entrega</span><br>
+	            <span id="restauranteTaxa" th:text="${#numbers.formatCurrency(pedido.taxaEntrega)}"></span><br>
+	        </div>
+	        <br><br>
+	        
+	        <div>
+	            <span id="restauranteTitulo">Total</span><br>
+	            <span id="restauranteTaxa" th:text="${#numbers.formatCurrency(pedido.Total)}"></span><br>
+	        </div>
+	        <br><br>
+	        
+	       <input type="button" value="Voltar" th:onclick="'location.href=\'' + @{/restaurante/home} + '\';'" />
+		</div>
+    </body>    
+</html>

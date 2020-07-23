@@ -76,7 +76,7 @@
                    	<label for="destaque">Destaque:</label><br>
                     <input type="checkbox" 
                     	id="destaque"
-                    	th:field="*{destaque}">
+                    	th:field="*{destaque}"><br>
                     
                     <div id="msgErro" th:if="${#fields.hasErrors('categoria')}">
                    		<span th:errors="*{categoria}"></span>

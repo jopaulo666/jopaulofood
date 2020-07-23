@@ -20,11 +20,11 @@
 	            	<input type="hidden" name="pedidoId" th:value="${pedido.id}">
 	            	<input type="submit" th:value="'Status: ' + ${pedido.status.descricao}" th:disabled="${pedido.status.ultimo}">
 	            </form>
-	        </div>
+	        </div><br>
 	
 	        <div>
 	            <span id="restauranteTitulo">Data</span><br>
-	            <span th:text="${#temporals.format(pedido.data, 'dd/MM/yyyy HH:mm')}"></span><br>
+	            <span th:text="${#temporals.format(pedido.data, 'dd/MM/yyyy - HH:mm')}"></span><br>
 	        </div>
 	        <br><br>
 	        
@@ -34,13 +34,13 @@
 	        </div>
 	        <br><br>
 	        
-	        <div th:each="item : ${pedidoitens}">
-	            <span id="restauranteTitulo" th:text="${item.cardapio.nome}"></span><br>
-	            <span th:text="'Qtd: ' + ${item.quantidade}"></span><br>
-	            <span th:text="'Obs: ' + ${item.observacoes}"></span><br>
-	            <span th:text="${#numbers.formatCurrency(item.cardapio.preco)}"></span><br>
-	        </div>
-	        <br><br>
+<!-- 	        <div th:each="item : ${pedido.itens}"> -->
+<!-- 	            <span id="restauranteTitulo" th:text="${item.itemCardapio.nome}"></span><br> -->
+<!-- 	            <span th:text="'Qtd: ' + ${item.quantidade}"></span><br> -->
+<!-- 	            <span th:text="'Obs: ' + ${item.observacoes}"></span><br> -->
+<!-- 	            <span th:text="${#numbers.formatCurrency(item.cardapio.preco)}"></span><br> -->
+<!-- 	        </div> -->
+<!-- 	        <br><br> -->
 	        
 	        <div>
 	            <span id="restauranteTitulo">Taxa de entrega</span><br>

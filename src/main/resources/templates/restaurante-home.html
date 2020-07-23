@@ -19,8 +19,8 @@
             <div>
                 <h1>Configurações</h1>            
                 <input type="button" value="Dados do restaurante" th:onclick="'location.href=\'' + @{/restaurante/edit} + '\';'"><br>
-                <input type="button" value="Comidas" th:onclick="'location.href=\' '+ @{/restaurante/comidas} + '\''" /><br />
-                <input type="button" value="Realatório de pedidos"><br>
+                <input type="button" value="Comidas" th:onclick="'location.href=\' '+ @{/restaurante/comidas} + '\''"><br>
+                <input type="button" value="Realatório de pedidos" th:onclick="'location.href=\' '+ @{/restaurante/relatorio/pedidos} + '\''"><br>
                 <input type="button" value="Relatório de itens"><br>
                 <input type="button" value="Sair" th:onclick="'location.href=\'' + @{/logout} + '\';'"><br>
             </div>

@@ -1,6 +1,9 @@
 package br.com.jopaulofood.application.service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import br.com.jopaulofood.domain.pedido.Pedido;
 import br.com.jopaulofood.domain.pedido.PedidoRepository;
+import br.com.jopaulofood.domain.pedido.RelatorioItemFaturamento;
+import br.com.jopaulofood.domain.pedido.RelatorioItemFilter;
 import br.com.jopaulofood.domain.pedido.RelatorioPedidoFilter;
 
 @Service
@@ -36,5 +41,42 @@ public class RelatorioService {
 		}
 		
 		return pedidoRepository.findByDateInterval(restauranteId, dataInicial.atStartOfDay(), dataFinal.atTime(23, 59, 59));
+	}
+	
+	public List<RelatorioItemFaturamento> calcularFaturamentoItens(Integer restauranteId, RelatorioItemFilter filter){
+		List<Object[]> itensObj;
+		
+		Integer itemId = filter.getItemId();
+		LocalDate dataInicial = filter.getDataInicial();
+		LocalDate dataFinal = filter.getDataFinal();
+		
+		if (dataInicial == null) {
+			return List.of();
+		}
+		
+		if (dataFinal == null) {
+			dataFinal = LocalDate.now();
+		}
+		
+		LocalDateTime dataHoraInicial = dataInicial.atStartOfDay();
+		LocalDateTime dataHoraFinal = dataFinal.atTime(23, 59, 59);
+		
+		
+		if (itemId != 0) {
+			itensObj = pedidoRepository.findItensForFaturamento(restauranteId, itemId, dataHoraInicial, dataHoraFinal);
+		} else {
+			itensObj = pedidoRepository.findItensForFaturamento(restauranteId, dataHoraInicial, dataHoraFinal);
+		}
+		
+		List<RelatorioItemFaturamento> itens = new ArrayList<>();
+		
+		for (Object[] item : itensObj) {
+			String nome = (String) item[0];
+			Long quantidade = (Long) item[1];
+			BigDecimal valor = (BigDecimal) item[2];
+			itens.add(new RelatorioItemFaturamento(nome, quantidade, valor));
+		}
+		
+		return itens;
 	}
 }

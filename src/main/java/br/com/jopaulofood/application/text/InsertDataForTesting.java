@@ -9,6 +9,8 @@ import java.util.NoSuchElementException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.core.env.Environment;
+import org.springframework.core.env.Profiles;
 import org.springframework.stereotype.Component;
 
 import br.com.jopaulofood.domain.cliente.Cliente;
@@ -44,20 +46,23 @@ public class InsertDataForTesting {
 	
 	@EventListener
 	public void onApplicationEvent(ContextRefreshedEvent event) {
+		Environment environment = event.getApplicationContext().getEnvironment();
 		
-		Cliente[] clientes = clientes();
-		Restaurante[] restaurantes = restaurantes();
-		itensCardapio(restaurantes);
-		
-		Pedido p = new Pedido();
-		p.setData(LocalDateTime.now());
-		p.setCliente(clientes[0]);
-		p.setRestaurante(restaurantes[0]);
-		p.setStatus(Status.Producao);
-		p.setSubtotal(BigDecimal.valueOf(10));
-		p.setTaxaEntrega(BigDecimal.valueOf(2));
-		p.setTotal(BigDecimal.valueOf(12.0));
-		pedidoRepository.save(p);
+		if (environment.acceptsProfiles(Profiles.of("dev"))) {
+			Cliente[] clientes = clientes();
+			Restaurante[] restaurantes = restaurantes();
+			itensCardapio(restaurantes);
+			
+			Pedido p = new Pedido();
+			p.setData(LocalDateTime.now());
+			p.setCliente(clientes[0]);
+			p.setRestaurante(restaurantes[0]);
+			p.setStatus(Status.Producao);
+			p.setSubtotal(BigDecimal.valueOf(10));
+			p.setTaxaEntrega(BigDecimal.valueOf(2));
+			p.setTotal(BigDecimal.valueOf(12.0));
+			pedidoRepository.save(p);
+		}
 	}
 	
 	private Restaurante[] restaurantes() {

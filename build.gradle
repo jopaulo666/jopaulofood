@@ -41,6 +41,7 @@ dependencies {
 	}
 	testImplementation 'org.springframework.security:spring-security-test'
 	testRuntime 'com.h2database:h2'
+	testImplementation 'org.junit.platform:junit-platform-engine:+'
 }
 
 test {

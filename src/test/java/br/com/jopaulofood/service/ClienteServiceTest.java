@@ -25,7 +25,7 @@ public class ClienteServiceTest {
 	private ClienteRepository clienteRepository;
 	
 	@Test
-	private void testWhenHasDuplicateEmail() throws Exception {
+	public void testWhenHasDuplicateEmail() throws Exception {
 		
 		Cliente c1 = new Cliente();
 		c1.setId(1);

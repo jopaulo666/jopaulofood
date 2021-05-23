@@ -13,7 +13,7 @@ https://jopaulofood.herokuapp.com/login
 Tela de login
 ![alt text](https://i.imgur.com/4dwspqb.png)
 
-Cadatro de novos clientes
+Cadastro de novos clientes
 ![alt text](https://i.imgur.com/qvG5hNS.png)
 
 Cadastro de novos restaurantes

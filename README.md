@@ -16,7 +16,7 @@ Tela de login
 Cadatro de novos clientes
 ![alt text](https://i.imgur.com/qvG5hNS.png)
 
-Cadatro de novos restaurantes
+Cadastro de novos restaurantes
 ![alt text](https://i.imgur.com/CXix2yc.png)
 
 Tela inicial do cliente

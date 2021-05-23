@@ -36,6 +36,8 @@ Tela inicial do restaurante
 Comidas do restaurante
 ![alt text](https://i.imgur.com/1KW74uF.png)
 
+## Tecnologias Utilizadas
+
 ### Back end
 - Java
 - Spring Boot
